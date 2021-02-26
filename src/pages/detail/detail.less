@@ -1,0 +1,81 @@
+@import '../styles/common.less';
+
+.container {
+  background-color: var(--weui-BG-0);
+  height: 100%;
+  overflow-y: auto;
+  font-size: @normalSize;
+
+  .loading {
+    padding: 40rpx 0;
+    text-align: center;
+  }
+
+  .service-title {
+    text-align: center;
+    border-bottom: 1px solid @lineColor;
+    padding-bottom: 16rpx;
+    padding-top: 8rpx;
+    background: @white;
+
+    &__title {
+      font-size: @titleSize;
+      padding: 4rpx 0;
+      .ellipsis();
+      .hyphens;
+    }
+
+    &__desc {
+      font-size: @descSize;
+      .ellipsis();
+      .hyphens;
+    }
+  }
+
+  .service-info {
+    padding: 10rpx 40rpx;
+    font-size: @descSize;
+    border-bottom: 1px solid @lineColor;
+    background: @white;
+
+    &__block {
+      display: flex;
+      align-items: flex-start;
+      line-height: 52rpx;
+    }
+  }
+
+  .label {
+    flex-shrink: 0;
+    color: @descColor;
+    width: 160rpx;
+  }
+
+  .record-entry {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20rpx 40rpx;
+    font-size: @descSize;
+    background: @white;
+  }
+
+  .close-button {
+    margin-top: 42rpx;
+    width: 100%;
+    font-size: @descSize;
+    font-weight: normal;
+    line-height: 80rpx;
+    background: @white;
+  }
+
+  .footer {
+    margin: 20rpx 0;
+    text-align: center;
+    font-size: @descSize;
+    color: @descColor;
+    .link {
+      color: @link;
+    }
+  }
+}

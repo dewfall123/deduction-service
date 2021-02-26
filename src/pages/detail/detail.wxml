@@ -1,0 +1,48 @@
+<!-- logs.wxml -->
+<view class="container">
+  <view wx:if="{{!service}}" class="loading">
+    <mp-loading type="circle"></mp-loading>
+  </view>
+  <view wx:if="{{service}}">
+    <!-- 标题 -->
+    <view class="service-title">
+      <view class="service-title__title">{{service.name}}</view>
+      <view class="service-title__desc">{{service.company}}</view>
+    </view>
+    <!-- 字段信息 -->
+    <view class="service-info">
+      <view class="service-info__block">
+        <text class="label">当前状态</text>
+        <text>{{SERVICE_STATUS_MAP[service.status] || service.status}}</text>
+      </view>
+      <view class="service-info__block">
+        <text class="label">签约时间</text>
+        <text>{{formatDate(service.signTime)}}</text>
+      </view>
+      <view class="service-info__block">
+        <text class="label">开通账号</text>
+        <text>{{service.account}}</text>
+      </view>
+      <view class="service-info__block">
+        <text class="label">扣款方式</text>
+        <text>{{PAY_WAY_MAP[service.payWay] || service.payWay}}</text>
+      </view>
+      <view class="service-info__block">
+        <text class="label">详情</text>
+        <text>{{service.detail}}</text>
+      </view>
+    </view>
+    <!-- 记录入口 -->
+    <view class="record-entry">
+      <text>扣费记录</text>
+      <mp-icon color="{{ArrowColor}}" icon="arrow" size="{{10}}"></mp-icon>
+    </view>
+    <!-- 关闭按钮 -->
+    <mp-dialog title="{{'是否确认关闭' + service.name}}" show="{{dialogShow}}" bind:buttontap="closePayService" buttons="{{buttons}}"></mp-dialog>
+    <button class="close-button" size="mini" type="warn" bind:tap="openConfirm">关闭服务</button>
+    <!-- 协议 -->
+    <view class="footer">
+      查看 《<text class="link">扣款授权确认书</text>》
+    </view>
+  </view>
+</view>

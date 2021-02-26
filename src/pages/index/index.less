@@ -1,0 +1,55 @@
+@import '../../styles/common.less';
+
+.container {
+  background-color: var(--weui-BG-0);
+  height: 100%;
+  overflow-y: auto;
+  font-size: @normalSize;
+
+  .service-list {
+    background-color: @white;
+    .service {
+      display: flex;
+      align-items: center;
+
+      &__left {
+        padding-left: 32rpx;
+        padding-right: 24rpx;
+        width: @avatarSize;
+        height: @avatarSize;
+        border-radius: @avatarSize;
+      }
+      &__right {
+        padding: 24rpx 0;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        border-top: 2rpx solid @lineColor;
+        &-text {
+          flex-grow: 1;
+          &-title {
+            .ellipsis();
+            .hyphens;
+          }
+          &-desc {
+            font-size: @descSize;
+            color: @descColor;
+            .ellipsis();
+            .hyphens;
+          }
+        }
+        &-icon {
+          margin-right: @descSize;
+          color: @descColor;
+        }
+      }
+    }
+  }
+
+  .close-link {
+    text-align: center;
+    padding: 32rpx 0;
+    font-size: @descSize;
+    color: var(--weui-LINK);
+  }
+}

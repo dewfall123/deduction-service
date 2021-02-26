@@ -1,0 +1,24 @@
+<!-- index.wxml -->
+<view class="container">
+  <!-- 列表 -->
+  <view class="service-list">
+    <view wx:for="{{services}}" wx:for-item="service" wx:key="id">
+      <navigator url="{{'/src/pages/detail/detail?id=' + service.id}}" class="service" hover-class="service_hover">
+        <image class="service__left" src="{{service.avatar}}" />
+        <view class="service__right">
+          <view class="service__right-text">
+            <view class="service__right-text-title">{{service.name}}</view>
+            <view class="service__right-text-desc">{{service.company}}</view>
+          </view>
+          <mp-icon extClass="service__right-icon" color="{{ArrowColor}}" icon="arrow" size="{{10}}"></mp-icon>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- 已关闭入口 -->
+  <view class="close-link">
+    <navigator wx:if="{{status === 'on'}}" url="{{'/src/pages/index/index?status=off'}}">
+      已关闭服务
+    </navigator>
+  </view>
+</view>
