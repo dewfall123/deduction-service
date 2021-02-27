@@ -1,37 +1,41 @@
 module.exports = {
   root: true,
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: 'module',
+  },
   env: {
+    es6: true,
     browser: true,
     jest: true,
+    commonjs: true,
     node: true,
   },
+  plugins: ['@typescript-eslint', 'prettier'],
   extends: [
-    'plugin:vue/essential',
     'eslint:recommended',
-    '@vue/prettier',
-    '@vue/typescript/recommended',
-    '@vue/prettier/@typescript-eslint',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
-  parserOptions: {
-    ecmaVersion: 2020,
+  globals: {
+    wx: true,
+    App: true,
+    Page: true,
+    Component: true,
   },
   rules: {
     'prettier/prettier': 'error',
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/camelcase': 'off',
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    '@typescript-eslint/ban-ts-ignore': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/ban-types': 'off',
-    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
   },
   overrides: [
     {
-      files: ['**/__tests__/*.{j,t}s?(x)', '**/dist/*', 'docs/*'],
-      env: {
-        jest: true,
-      },
+      files: ['src/typings'],
     },
   ],
 };

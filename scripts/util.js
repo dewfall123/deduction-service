@@ -5,7 +5,7 @@ const gulpLess = require('gulp-less');
 const fsExtra = require('fs-extra');
 
 const outDir = require('../project.config.json').miniprogramRoot;
-const srcReg = /^src(\/|\\)/;
+const srcReg = /^src(\/|\\)?/;
 
 function compileLessFile(file) {
   gulp
@@ -16,11 +16,14 @@ function compileLessFile(file) {
       }),
     )
     .pipe(
-      gulpRename((file) => ({
-        dirname: file.dirname.replace(srcReg, ''),
-        basename: file.basename,
-        extname: '.wxss',
-      })),
+      gulpRename((file) => {
+        // console.log(file);
+        return {
+          dirname: file.dirname.replace(srcReg, ''),
+          basename: file.basename,
+          extname: '.wxss',
+        };
+      }),
     )
     .pipe(gulp.dest(outDir));
 }
@@ -29,7 +32,7 @@ function copyFile(file) {
   fsExtra.copy(file, file.replace(srcReg, outDir));
 }
 
-function noop() {}
+// function noop() {}
 
 const fileHandles = {
   '.less': compileLessFile,

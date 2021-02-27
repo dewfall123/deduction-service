@@ -1,8 +1,14 @@
 // detail.ts
 
 import { wxp } from '../../utils/wxp';
-import { formatDate } from '../../utils/util';
-import { Service, SERVICE_STATUS_MAP, PAY_WAY_MAP } from '../type';
+import { checkCloudResult, formatDate } from '../../utils/util';
+import {
+  Service,
+  SERVICE_STATUS_MAP,
+  PAY_WAY_MAP,
+  CloudResult,
+  SERICE_STATUS,
+} from '../type';
 import { ArrowColor } from '../constants';
 
 Page({
@@ -18,27 +24,41 @@ Page({
   onLoad(option) {
     if (!option.id) {
       wxp.showToast({
-        title: '链接参数异常',
-        icon: 'loading',
+        title: '链接参数异常1',
+        icon: 'none',
         duration: 2000,
       });
       return;
     }
     this.getServiceInfo(option.id);
   },
+  // 根据id获取服务信息1
   async getServiceInfo(id: string) {
-    const { data } = await wxp.request({
-      url: 'https://example.com/api/pay-service/detail',
+    const { result } = await wx.cloud.callFunction({
+      name: 'get-deduction-service',
       data: {
-        unionId: 'TODO',
-        id: id,
+        id,
       },
     });
+    if (!checkCloudResult(result as CloudResult)) {
+      return;
+    }
     this.setData({
-      service: data as Service,
+      service: (result as CloudResult).data as Service,
     });
   },
+  // 关闭当前服务
   async closePayService() {
+    const { result } = await wx.cloud.callFunction({
+      name: 'update-deduction-service',
+      data: {
+        status: SERICE_STATUS.已停用,
+      },
+    });
+    if (!checkCloudResult(result as CloudResult)) {
+      return;
+    }
+
     this.setData({
       dialogShow: false,
     });

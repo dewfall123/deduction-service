@@ -1,0 +1,10 @@
+ls:
+  src:
+    .js: kebab-case
+    .ts: kebab-case
+    .wxml: kebab-case
+    .less: kebab-case
+    .json: kebab-case
+    .ts: kebab-case
+    .d.ts: kebab-case | point.case
+    .spec.ts: kebab-case | point.case

@@ -24,3 +24,9 @@ export interface Service {
   payWay: PAY_WAY;
   detail: string;
 }
+
+export interface CloudResult {
+  code: number;
+  msg?: string;
+  data?: unknown;
+}

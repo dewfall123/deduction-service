@@ -16,7 +16,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 /// <reference path="./lib.wx.behavior.d.ts" />
 
 declare namespace WechatMiniprogram {
-    type IAnyObject = Record<string, any>
-    type Optional<F> = F extends (arg: infer P) => infer R ? (arg?: P) => R : F
-    type OptionalInterface<T> = { [K in keyof T]: Optional<T[K]> }
+  type IAnyObject = Record<string, any>;
+  type Optional<F> = F extends (arg: infer P) => infer R ? (arg?: P) => R : F;
+  type OptionalInterface<T> = { [K in keyof T]: Optional<T[K]> };
 }
