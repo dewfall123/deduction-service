@@ -29,7 +29,7 @@ exports.main = async (event, context) => {
   // TODO 为了方便演示，省略根据用户ID筛选
   // const wxContext = cloud.getWXContext();
   try {
-    const { data: services } = await deductionServices.where({ status }).get();
+    const { data: services } = await deductionServices.where({ status, deleted: false }).get();
     return {
       code: 0,
       data: services,

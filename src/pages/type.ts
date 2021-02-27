@@ -17,7 +17,7 @@ export interface Service {
   avatar: string;
   id: string;
   name: string;
-  company: string;
+  desc: string;
   status: SERICE_STATUS;
   signTime: string;
   account: string;

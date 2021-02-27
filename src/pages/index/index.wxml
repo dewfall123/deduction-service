@@ -4,20 +4,24 @@
     <mp-loading type="circle"></mp-loading>
   </view>
   <view wx:if="{{!loading}}">
+    <!-- 列表空提示 -->
+    <view wx:if="{{!services.length}}" class="empty-tip">
+      {{ '暂无' + SERVICE_STATUS_MAP[status] + '服务' }}
+    </view>
     <!-- 列表 -->
     <view class="service-list">
-      <view wx:for="{{services}}" wx:for-item="service" wx:key="id">
+      <block wx:for="{{services}}" wx:for-item="service" wx:key="id">
         <navigator url="{{'/pages/detail/detail?id=' + service._id}}" class="service" hover-class="service_hover">
           <image class="service__left" src="{{service.avatar}}" />
           <view class="service__right">
             <view class="service__right-text">
               <view class="service__right-text-title">{{service.name}}</view>
-              <view class="service__right-text-desc">{{service.company}}</view>
+              <view class="service__right-text-desc">{{service.desc}}</view>
             </view>
             <mp-icon extClass="service__right-icon" color="{{ArrowColor}}" icon="arrow" size="{{10}}"></mp-icon>
           </view>
         </navigator>
-      </view>
+      </block>
     </view>
     <!-- 已关闭入口 -->
     <view class="close-link">

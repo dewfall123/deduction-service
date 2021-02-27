@@ -22,3 +22,5 @@ declare module 'miniprogram-api-promise' {
   ): (option: ParamType<Func> = {}) => Promise<ResultType<Func>>;
   export declare function promisifyAll(wx: Wx, wxp: Wxp): void;
 }
+
+declare module 'miniprogram-computed';

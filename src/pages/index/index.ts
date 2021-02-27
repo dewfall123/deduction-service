@@ -1,6 +1,11 @@
 // index.ts
 
-import { CloudResult, SERICE_STATUS, Service } from '../type';
+import {
+  CloudResult,
+  SERICE_STATUS,
+  Service,
+  SERVICE_STATUS_MAP,
+} from '../type';
 import { ArrowColor } from '../constants';
 import { checkCloudResult } from '../../utils/util';
 
@@ -10,6 +15,7 @@ Page({
     services: [] as Service[],
     loading: true,
     ArrowColor,
+    SERVICE_STATUS_MAP,
   },
   onLoad(option) {
     // 从链接参数获取status
@@ -18,7 +24,8 @@ Page({
         status: option.status as SERICE_STATUS,
       });
     }
-
+  },
+  onShow() {
     this.getServices();
   },
   // 获取服务列表

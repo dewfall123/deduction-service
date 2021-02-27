@@ -38,7 +38,7 @@ exports.main = async (event, context) => {
   }
 
   try {
-    const { data: services } = await deductionServices.update({
+    const { data: services } = await deductionServices.doc(id).update({
       data: {
         [key]: value,
       },

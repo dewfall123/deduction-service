@@ -11,8 +11,16 @@
     text-align: center;
   }
 
+  .empty-tip {
+    text-align: center;
+    color: @descColor;
+    font-size: @descSize;
+    padding: 8rpx 0;
+  }
+
   .service-list {
     background-color: @white;
+
     .service {
       display: flex;
       align-items: center;
@@ -24,28 +32,41 @@
         height: @avatarSize;
         border-radius: @avatarSize;
       }
+
       &__right {
-        padding: 24rpx 0;
+        padding: 32rpx 0;
         flex-grow: 1;
         display: flex;
         align-items: center;
-        border-top: 2rpx solid @lineColor;
+        border-top: 1px solid @lineColor;
+        .onepx();
+
         &-text {
           flex-grow: 1;
+
           &-title {
             .ellipsis();
             .hyphens;
+            line-height: 1.2;
           }
+
           &-desc {
-            font-size: @descSize;
+            font-size: @miniSize;
             color: @descColor;
             .ellipsis();
             .hyphens;
           }
         }
+
         &-icon {
           margin-right: @descSize;
           color: @descColor;
+        }
+      }
+
+      &:first-child {
+        .service__right {
+          border-top: 1px solid @white;
         }
       }
     }

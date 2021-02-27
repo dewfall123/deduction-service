@@ -1,7 +1,7 @@
 const COLLECTION_NAME = 'deduction-services';
 
 // 允许更新的KEY值
-const VALID_KEYS = ['status'];
+const VALID_KEYS = ['status', 'deleted'];
 
 const CODE_MSG_MAP = {
   '-1': '服务异常',

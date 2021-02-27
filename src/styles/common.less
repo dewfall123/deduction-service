@@ -1,7 +1,8 @@
 @avatarSize: 40rpx;
+@titleSize: 38rpx;
 @normalSize: 36rpx;
 @descSize: 28rpx;
-@titleSize: 38rpx;
+@miniSize: 24rpx;
 
 @normalColor: var(--weui-FG-0);
 @descColor: var(--weui-FG-2);
@@ -9,8 +10,9 @@
 
 @white: var(--weui-WHITE);
 @link: var(--weui-LINK);
+@red: var(--weui-RED);
 
-.ellipsis(@w:auto) {
+.ellipsis(@w: auto) {
   width: @w;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -25,12 +27,21 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: @line;
 }
+
 .text_wrap() {
   word-wrap: break-word;
   word-break: break-all;
 }
+
 .hyphens() {
   word-wrap: break-word;
   -webkit-hyphens: auto;
   hyphens: auto;
+}
+
+.onepx() {
+  border-width: 1px;
+  @media (-webkit-min-device-pixel-ratio: 2) {
+    border-width: 0.5px;
+  }
 }

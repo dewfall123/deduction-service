@@ -15,8 +15,8 @@
     "minified": true,
     "newFeature": true,
     "coverView": true,
-    "nodeModules": false,
-    "autoAudits": false,
+    "nodeModules": true,
+    "autoAudits": true,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
     "uglifyFileName": false,
@@ -38,14 +38,14 @@
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
     "userConfirmedBundleSwitch": false,
-    "minifyWXSS": true,
     "packNpmManually": true,
     "packNpmRelationList": [
       {
         "packageJsonPath": "./package.json",
         "miniprogramNpmDistDir": "./dist/"
       }
-    ]
+    ],
+    "minifyWXSS": true
   },
   "appid": "wx0050fbfb266fa552",
   "projectname": "deduction-service",

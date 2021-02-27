@@ -1,4 +1,40 @@
+@import './styles/common.less';
+
 /**app.wxss**/
 page {
   height: 100%;
+}
+
+// mp-dialog 小尺寸样式
+.sm-dialog {
+  .weui-dialog {
+    border-radius: 6px;
+  }
+
+  .weui-dialog__hd {
+    padding: 18px 16px;
+
+    .weui-dialog__title {
+      font-size: @descSize;
+      font-weight: normal;
+    }
+  }
+
+  .weui-dialog__bd {
+    display: none;
+  }
+
+  .weui-dialog__ft {
+    line-height: 40px;
+    min-height: 40px;
+
+    .weui-dialog__btn {
+      font-weight: normal;
+      font-size: @descSize;
+    }
+
+    .weui-dialog__btn_primary {
+      color: var(--weui-BRAND);
+    }
+  }
 }

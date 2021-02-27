@@ -12,6 +12,8 @@ App<IAppOption>({
       });
     }
 
+    wx.onError(console.log);
+
     this.globalData = {};
   },
 });

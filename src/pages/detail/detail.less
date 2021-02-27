@@ -11,9 +11,14 @@
     text-align: center;
   }
 
+  .red-text {
+    color: @red;
+  }
+
   .service-title {
     text-align: center;
     border-bottom: 1px solid @lineColor;
+    .onepx();
     padding-bottom: 16rpx;
     padding-top: 8rpx;
     background: @white;
@@ -36,6 +41,7 @@
     padding: 10rpx 40rpx;
     font-size: @descSize;
     border-bottom: 1px solid @lineColor;
+    .onepx();
     background: @white;
 
     &__block {
@@ -43,12 +49,17 @@
       align-items: flex-start;
       line-height: 52rpx;
     }
+
+    .edit-payway {
+      color: var(--weui-INDIGO);
+      padding: 0 10rpx;
+    }
   }
 
   .label {
     flex-shrink: 0;
     color: @descColor;
-    width: 160rpx;
+    width: 150rpx;
   }
 
   .record-entry {
@@ -67,6 +78,9 @@
     font-weight: normal;
     line-height: 80rpx;
     background: @white;
+    border-top: 1px solid @lineColor;
+    border-bottom: 1px solid @lineColor;
+    .onepx();
   }
 
   .footer {
@@ -74,6 +88,7 @@
     text-align: center;
     font-size: @descSize;
     color: @descColor;
+
     .link {
       color: @link;
     }
