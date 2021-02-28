@@ -30,6 +30,9 @@ Page({
   },
   // 获取服务列表
   async getServices() {
+    this.setData({
+      loading: true,
+    });
     const { result } = await wx.cloud.callFunction({
       name: 'get-deduction-services',
       data: {

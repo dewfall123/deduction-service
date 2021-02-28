@@ -63,8 +63,15 @@ Page({
   },
   // 关闭当前服务
   async stopService(e: any) {
-    // index代表关闭按钮
+    this.setData({
+      stopDialogShow: false,
+    });
+    // index=1代表关闭按钮
     if (e.detail.index === 1) {
+      wx.showToast({
+        title: '正在关闭...',
+        icon: 'loading',
+      });
       const { result } = await wx.cloud.callFunction({
         name: 'update-deduction-service',
         data: {
@@ -75,12 +82,9 @@ Page({
       });
       checkCloudResult(result as CloudResult);
       // 刷新数据
-      this.getService();
+      await this.getService();
+      wx.hideToast();
     }
-
-    this.setData({
-      stopDialogShow: false,
-    });
   },
 
   openStopConfirm() {
@@ -90,7 +94,14 @@ Page({
   },
   // 删除服务
   async deleteService(e: any) {
+    this.setData({
+      deleteDialogShow: false,
+    });
     if (e.detail.index === 1) {
+      wx.showToast({
+        title: '正在删除...',
+        icon: 'loading',
+      });
       const { result } = await wx.cloud.callFunction({
         name: 'update-deduction-service',
         data: {
@@ -101,11 +112,9 @@ Page({
       });
       checkCloudResult(result as CloudResult);
       // 返回首页
-      wx.reLaunch({ url: 'pages/index/index' });
+      wx.hideToast();
+      wx.reLaunch({ url: '/pages/index/index', fail: console.log });
     }
-    this.setData({
-      deleteDialogShow: false,
-    });
   },
 
   openDeleteConfirm() {

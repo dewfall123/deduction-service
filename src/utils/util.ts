@@ -14,6 +14,7 @@ export function enumToMap(e: Record<string, string>) {
 
 export function checkCloudResult(result: CloudResult) {
   if (result?.code !== 0) {
+    wx.hideToast();
     wx.showToast({
       title: result.msg ?? '服务异常',
       icon: 'none',
