@@ -19,7 +19,7 @@
     "postinstall": "husky install"
   },
   "lint-staged": {
-    "*.js": [
+    "*.(js|less|wxss|json)": [
       "prettier --write"
     ],
     "*.ts?(x)": [
