@@ -1,11 +1,12 @@
 # 云开发 quickstart
 
-### 允许
+### 运行
 
 `yarn dev`
 
 `yarn build`
 
-## 参考文档
 
-- [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
+###
+
+

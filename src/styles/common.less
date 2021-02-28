@@ -2,7 +2,6 @@
 @titleSize: 38rpx;
 @normalSize: 36rpx;
 @descSize: 28rpx;
-@miniSize: 24rpx;
 
 @normalColor: var(--weui-FG-0);
 @descColor: var(--weui-FG-2);
@@ -37,4 +36,36 @@
   word-wrap: break-word;
   -webkit-hyphens: auto;
   hyphens: auto;
+}
+
+.px1-top() {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    background-color: @lineColor;
+    display: block;
+    width: 100%;
+    height: 1px;
+    transform: scale(1, 0.5);
+    top: 0;
+    left: 0;
+  }
+}
+
+.px1-bottom() {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: '';
+    background-color: @lineColor;
+    display: block;
+    width: 100%;
+    height: 1px;
+    transform: scale(1, 0.5);
+    bottom: 0;
+    left: 0;
+  }
 }

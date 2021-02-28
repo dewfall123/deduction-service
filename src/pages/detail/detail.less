@@ -17,10 +17,10 @@
 
   .service-title {
     text-align: center;
-    border-bottom: 1rpx solid @lineColor;
     padding-bottom: 16rpx;
     padding-top: 8rpx;
     background: @white;
+    .px1-bottom();
 
     &__title {
       font-size: @titleSize;
@@ -39,8 +39,8 @@
   .service-info {
     padding: 10rpx 40rpx;
     font-size: @descSize;
-    border-bottom: 1rpx solid @lineColor;
     background: @white;
+    .px1-bottom();
 
     &__block {
       display: flex;
@@ -76,8 +76,9 @@
     font-weight: normal;
     line-height: 80rpx;
     background: @white;
-    border-top: 1rpx solid @lineColor;
-    border-bottom: 1rpx solid @lineColor;
+    border-top: 0.5px solid @lineColor;
+    border-bottom: 0.5px solid @lineColor;
+    border-radius: 0;
   }
 
   .footer {
