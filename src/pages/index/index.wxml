@@ -25,7 +25,7 @@
     </view>
     <!-- 已关闭入口 -->
     <view class="close-link">
-      <navigator wx:if="{{status === 'on'}}" url="{{'/pages/index/index?status=off'}}">
+      <navigator wx:if="{{status === 'on'}}" url="{{'/pages/index/index?status=off'}}" hover-class="none">
         已关闭服务
       </navigator>
     </view>
