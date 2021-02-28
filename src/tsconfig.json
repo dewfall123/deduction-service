@@ -25,17 +25,9 @@
     "esModuleInterop": true,
     "downlevelIteration": true,
     "rootDir": ".",
-    "lib": [
-      "ES2020"
-    ],
-    "typeRoots": [
-      "miniprogram/typings"
-    ]
+    "lib": ["ES2020"],
+    "typeRoots": ["miniprogram/typings"]
   },
-  "include": [
-    "./**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules"]
 }

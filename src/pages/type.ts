@@ -25,6 +25,7 @@ export interface Service {
   detail: string;
 }
 
+// 云函数返回result的约定结构
 export interface CloudResult {
   code: number;
   msg?: string;

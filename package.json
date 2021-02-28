@@ -13,9 +13,9 @@
     "lint": "eslint \"src/**/*.ts\"",
     "lint-fix": "yarn lint --fix",
     "ls-lint": "ls-lint",
-    "preinstall": "node ./scripts/check-yarn.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "prettier": "prettier --write",
+    "prettier": "prettier \"src/**/*.(ts|less|wxss|json)\" --write",
+    "preinstall": "node ./scripts/check-yarn.js",
     "postinstall": "husky install"
   },
   "lint-staged": {
@@ -30,8 +30,7 @@
   "author": "dewfall123",
   "dependencies": {
     "dayjs": "^1.10.4",
-    "miniprogram-api-promise": "^1.0.4",
-    "miniprogram-recycle-view": "^0.1.5"
+    "miniprogram-api-promise": "^1.0.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.0.1",
@@ -41,6 +40,7 @@
     "@typescript-eslint/parser": "^4.15.2",
     "chokidar": "^3.5.1",
     "conventional-changelog-cli": "^2.1.1",
+    "ctree-cli": "^1.0.17",
     "del": "^6.0.0",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^8.1.0",
