@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - lts/*
+install:
+  - yarn
+script:
+  - yarn lint
+  - yarn ls-lint
+  - yarn build
+  # - yarn test
+
+cache: yarn
+
+# TODO 暂无部署流程
+# deploy:
+#   provider: pages
+#   skip_cleanup: true
+#   local_dir: dist
+#   github_token: $GITHUB_TOKEN
+#   keep_history: true
+#   on:
+#     branch: master

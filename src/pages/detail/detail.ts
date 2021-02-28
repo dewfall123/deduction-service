@@ -88,7 +88,7 @@ Page({
       stopDialogShow: true,
     });
   },
-
+  // 删除服务
   async deleteService(e: any) {
     if (e.detail.index === 1) {
       const { result } = await wx.cloud.callFunction({
