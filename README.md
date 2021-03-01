@@ -102,8 +102,8 @@ module.exports = {
 演示数据库已导出在[database.json](database.json).
 
 ## 体验版
-<p align="center">
+<p align="">
   <br>
-  <img src="qr.jpg"/>
+  <img src="qr.jpg" style="width: 150px"/>
   <br>
 </p>
