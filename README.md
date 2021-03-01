@@ -59,7 +59,7 @@ yarn dev
 
 | 命令          | 说明                                                                                             |
 | ------------- | ------------------------------------------------------------------------------------------------ |
-| yarn ls-lint  | 检查文件命名规范，预定文件命名需要满足`kebab-case`规范。详细配置见根目录`.ls-lint.yml`配置文件。 |
+| yarn ls-lint  | 检查文件命名规范，约定文件命名需要满足`kebab-case`规范。详细配置见根目录`.ls-lint.yml`配置文件。 |
 | yarn lint     | eslint + prettier 检查。详细配置见根目录`.eslintrc.js`，`.prettierrc`配置文件。                  |
 | yarn lint-fix | 同上，会修改文件                                                                                 |
 | yarn prettier | prettier 修改文件格式                                                                            |

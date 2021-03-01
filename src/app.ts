@@ -7,7 +7,7 @@ App<IAppOption>({
     } else {
       wx.cloud.init({
         // 使用默认环境（第一个创建的环境）
-        // env: 'my-env-id',
+        // env: 'test',
         traceUser: true,
       });
     }
