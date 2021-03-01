@@ -1,8 +1,8 @@
-## 小程序-demo
+## 小程序
 
 [![Build Status](https://www.travis-ci.org/dewfall123/deduction-service.svg?branch=main)](https://www.travis-ci.org/dewfall123/deduction-service)
 
-扣费服务小程序 Demo。
+扣费服务小程序 Demo。包含列表查看，项目详情两个页面。
 
 ### 如何使用
 
@@ -100,3 +100,10 @@ module.exports = {
 为了方便演示，省略根据用户 ID 筛选，所以每个人返回列表相同。
 
 演示数据库已导出在[database.json](database.json).
+
+## 体验版
+<p align="center">
+  <br>
+  <img src="qr.jpr"/>
+  <br>
+</p>
