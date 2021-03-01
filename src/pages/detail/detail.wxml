@@ -13,8 +13,7 @@
     <view class="service-info">
       <view class="service-info__block">
         <text class="label">当前状态</text>
-        <text
-          class="{{service.status === 'off' ? 'red-text': ''}}">{{SERVICE_STATUS_MAP[service.status] || service.status}}</text>
+        <text class="{{service.status === 'off' ? 'red-text': ''}}">{{SERVICE_STATUS_MAP[service.status] || service.status}}</text>
       </view>
       <view class="service-info__block">
         <text class="label">签约时间</text>
@@ -27,7 +26,7 @@
       <view class="service-info__block">
         <text class="label">扣款方式</text>
         <text>{{PAY_WAY_MAP[service.payWay] || service.payWay}}</text>
-        <text wx:if="{{service.status === 'on'}}" class="edit-payway">修改</text>
+        <text wx:if="{{service.status === 'on'}}" class="edit-payway" bind:tap="showTODO">修改</text>
       </view>
       <view class="service-info__block">
         <text class="label">详情</text>
@@ -35,27 +34,27 @@
       </view>
     </view>
     <!-- 记录入口 -->
-    <view class="record-entry">
+    <view class="record-entry" bind:tap="showTODO">
       <text>扣费记录</text>
       <mp-icon color="{{ArrowColor}}" icon="arrow" size="{{10}}"></mp-icon>
     </view>
     <!-- 关闭按钮 -->
     <block wx:if="{{service.status === 'on'}}">
-      <mp-dialog show="{{stopDialogShow}}" mask-closable="{{false}}" ext-class="sm-dialog"
-        title="{{'是否确认关闭' + service.name + '?'}}" bind:buttontap="stopService" buttons="{{stopButtons}}">
-      </mp-dialog>
-      <button class="close-button" size="mini" type="warn" bind:tap="openStopConfirm">关闭服务</button>
+      <mp-dialog show="{{stopDialogShow}}" mask-closable="{{false}}" ext-class="sm-dialog" title="{{'是否确认关闭' + service.name + '?'}}" bind:buttontap="stopService" buttons="{{stopButtons}}"></mp-dialog>
+      <button class="close-button" hover-class="none" size="mini" type="warn" bind:tap="openStopConfirm" hover-stop-propagation>
+        关闭服务
+      </button>
     </block>
     <!-- 删除按钮 -->
     <block wx:else>
-      <mp-dialog show="{{deleteDialogShow}}" mask-closable="{{false}}" ext-class="sm-dialog"
-        title="{{DELETE_CONFIRM_TEXT}}" bind:buttontap="deleteService" buttons="{{deleteButtons}}">
-      </mp-dialog>
-      <button class="close-button" size="mini" type="warn" bind:tap="openDeleteConfirm">删除</button>
+      <mp-dialog show="{{deleteDialogShow}}" mask-closable="{{false}}" ext-class="sm-dialog" title="{{DELETE_CONFIRM_TEXT}}" bind:buttontap="deleteService" buttons="{{deleteButtons}}"></mp-dialog>
+      <button class="close-button" hover-class="none" size="mini" type="warn" bind:tap="openDeleteConfirm" hover-stop-propagation>
+        删除
+      </button>
     </block>
     <!-- 协议 -->
     <view class="footer">
-      查看 《<text class="link">扣款授权确认书</text>》
+      查看 《<text class="link" bind:tap="showTODO">扣款授权确认书</text>》
     </view>
   </view>
 </view>

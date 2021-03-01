@@ -7,6 +7,7 @@ const fsExtra = require('fs-extra');
 const outDir = require('../project.config.json').miniprogramRoot;
 const srcReg = /^src(\/|\\)?/;
 
+// 编译less  a.less -> a.wxss
 function compileLessFile(file) {
   gulp
     .src(file, { allowEmpty: true })

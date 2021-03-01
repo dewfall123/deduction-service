@@ -1,0 +1,4 @@
+<view class="medal-tag">
+    <image class="medal-tag__icon" src="../../assets/images/medal.svg"></image>
+    <text class="medal-tag__text">{{text}}</text>
+</view>

@@ -11,5 +11,8 @@
   "style": "v2",
   "useExtendedLib": {
     "weui": true
+  },
+  "usingComponents": {
+    "medal-tag": "components/medal-tag/medal-tag"
   }
 }

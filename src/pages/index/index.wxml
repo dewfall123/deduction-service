@@ -3,25 +3,31 @@
   <view wx:if="{{loading}}" class="loading">
     <mp-loading type="circle"></mp-loading>
   </view>
-  <view wx:if="{{!loading}}">
-    <!-- 列表空提示 -->
-    <view wx:if="{{!services.length}}" class="empty-tip">
-      {{ '暂无' + SERVICE_STATUS_MAP[status] + '服务' }}
-    </view>
-    <!-- 列表 -->
-    <view class="service-list">
-      <block wx:for="{{services}}" wx:for-item="service" wx:key="id">
-        <navigator url="{{'/pages/detail/detail?id=' + service._id}}" class="service" hover-class="service_hover">
-          <image class="service__left" src="{{service.avatar}}" />
-          <view class="service__right">
-            <view class="service__right-text">
-              <view class="service__right-text-title">{{service.name}}</view>
-              <view class="service__right-text-desc">{{service.desc}}</view>
+  <view wx:if="{{!loading}}" class="page-content">
+    <view class="page-content__top">
+      <!-- 列表空提示 -->
+      <view wx:if="{{!services.length}}" class="empty-tip">
+        {{ '暂无' + SERVICE_STATUS_MAP[status] + '服务' }}
+      </view>
+      <!-- 列表 -->
+      <view wx:else class="service-list">
+        <block wx:for="{{services}}" wx:for-item="service" wx:key="id">
+          <navigator url="{{'/pages/detail/detail?id=' + service._id}}" class="service" hover-class="service_hover">
+            <image class="service__left" src="{{service.avatar}}" />
+            <view class="service__right">
+              <view class="service__right-content">
+                <!-- 名称 -->
+                <view class="service__right-content-title">
+                  <text class="service__right-content-title-name">{{service.name}}</text>
+                  <medal-tag wx:if="{{service.payScore}}" class="service__right-content-title-tag"></medal-tag>
+                </view>
+                <view class="service__right-content-desc">{{service.desc}}</view>
+              </view>
+              <mp-icon extClass="service__right-icon" color="{{ArrowColor}}" icon="arrow" size="{{10}}"></mp-icon>
             </view>
-            <mp-icon extClass="service__right-icon" color="{{ArrowColor}}" icon="arrow" size="{{10}}"></mp-icon>
-          </view>
-        </navigator>
-      </block>
+          </navigator>
+        </block>
+      </view>
     </view>
     <!-- 已关闭入口 -->
     <view class="close-link">

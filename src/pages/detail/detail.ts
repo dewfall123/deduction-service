@@ -1,12 +1,10 @@
 // detail.ts
 
-import { wxp } from '../../utils/wxp';
-import { checkCloudResult } from '../../utils/util';
+import { cloudRequest } from '../../utils/util';
 import {
   Service,
   SERVICE_STATUS_MAP,
   PAY_WAY_MAP,
-  CloudResult,
   SERICE_STATUS,
 } from '../type';
 import {
@@ -33,7 +31,7 @@ Page({
   },
   onLoad(option) {
     if (!option.id) {
-      wxp.showToast({
+      wx.showToast({
         title: '链接参数异常',
         icon: 'none',
         duration: 2000,
@@ -47,17 +45,15 @@ Page({
   },
   // 根据id获取服务信息
   async getService() {
-    const { result } = await wx.cloud.callFunction({
+    const result = await cloudRequest({
       name: 'get-deduction-service',
       data: {
         id: this.data.id,
       },
     });
-    if (!checkCloudResult(result as CloudResult)) {
-      return;
-    }
+
     this.setData({
-      service: processService((result as CloudResult).data as Service),
+      service: processService(result.data as Service),
       loading: false,
     });
   },
@@ -72,7 +68,7 @@ Page({
         title: '正在关闭...',
         icon: 'loading',
       });
-      const { result } = await wx.cloud.callFunction({
+      await cloudRequest({
         name: 'update-deduction-service',
         data: {
           id: this.data.id,
@@ -80,7 +76,6 @@ Page({
           value: SERICE_STATUS.已停用,
         },
       });
-      checkCloudResult(result as CloudResult);
       // 刷新数据
       await this.getService();
       wx.hideToast();
@@ -102,7 +97,7 @@ Page({
         title: '正在删除...',
         icon: 'loading',
       });
-      const { result } = await wx.cloud.callFunction({
+      await cloudRequest({
         name: 'update-deduction-service',
         data: {
           id: this.data.id,
@@ -110,7 +105,6 @@ Page({
           value: true,
         },
       });
-      checkCloudResult(result as CloudResult);
       // 返回首页
       wx.hideToast();
       wx.reLaunch({ url: '/pages/index/index', fail: console.log });
@@ -120,6 +114,14 @@ Page({
   openDeleteConfirm() {
     this.setData({
       deleteDialogShow: true,
+    });
+  },
+  // 待开发功能提示
+  showTODO() {
+    wx.showToast({
+      title: '开发中...',
+      icon: 'none',
+      duration: 2 * 1000,
     });
   },
 });

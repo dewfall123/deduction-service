@@ -23,6 +23,7 @@ export interface Service {
   account: string;
   payWay: PAY_WAY;
   detail: string;
+  payScore?: boolean;
 }
 
 // 云函数返回result的约定结构

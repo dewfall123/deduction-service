@@ -1,0 +1,25 @@
+// @tagColor: var(--weui-YELLOW);
+@tagColor: #ffc300;
+@tagSize: 28rpx;
+
+.medal-tag {
+  display: inline-flex;
+  align-items: center;
+  color: @tagColor;
+  background: rgba(@tagColor, 0.1);
+  padding: 6rpx 10rpx;
+  border-radius: 4rpx;
+
+  &__icon {
+    fill: rgba(@tagColor, 0.7);
+    width: @tagSize;
+    height: @tagSize;
+    margin-right: 6rpx;
+  }
+
+  &__text {
+    font-size: 24rpx;
+    margin-right: 6rpx;
+    line-height: 1;
+  }
+}

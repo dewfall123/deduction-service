@@ -8,11 +8,14 @@ const { copyOrCompile } = require('./util');
 
 const argv = minimist(process.argv.slice(2));
 
-// 只需要编译复制这三种文件
 const srcFiles = [
+  // 编译复制这三种代码文件
   'src/**/*.less',
   'src/**/*.json',
   'src/**/*.wxml',
+  // 复制资源
+  'src/**/*.svg',
+  'src/**/*.png',
   '!src/tsconfig.json',
 ];
 

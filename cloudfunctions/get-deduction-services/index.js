@@ -26,10 +26,12 @@ const deductionServices = db.collection(COLLECTION_NAME);
 exports.main = async (event, context) => {
   const status = event.status || DEFAULT_STATUS;
 
-  // TODO 为了方便演示，省略根据用户ID筛选
+  // TODO 为了方便演示，省略根据用户ID筛选，所以每个人返回列表相同
   // const wxContext = cloud.getWXContext();
   try {
-    const { data: services } = await deductionServices.where({ status, deleted: false }).get();
+    const { data: services } = await deductionServices
+      .where({ status, deleted: false })
+      .get();
     return {
       code: 0,
       data: services,

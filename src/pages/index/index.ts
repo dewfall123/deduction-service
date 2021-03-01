@@ -1,13 +1,8 @@
 // index.ts
 
-import {
-  CloudResult,
-  SERICE_STATUS,
-  Service,
-  SERVICE_STATUS_MAP,
-} from '../type';
+import { SERICE_STATUS, Service, SERVICE_STATUS_MAP } from '../type';
 import { ArrowColor } from '../constants';
-import { checkCloudResult } from '../../utils/util';
+import { cloudRequest } from '../../utils/util';
 
 Page({
   data: {
@@ -33,23 +28,21 @@ Page({
     this.setData({
       loading: true,
     });
-    const { result } = await wx.cloud.callFunction({
+    const result = await cloudRequest({
       name: 'get-deduction-services',
       data: {
         status: this.data.status,
       },
     });
 
+    // 有支付分的排在前面
+    const services = (result?.data as Service[]).sort((a) =>
+      a.payScore ? -1 : 1,
+    );
+
     this.setData({
       loading: false,
-    });
-
-    if (!checkCloudResult(result as CloudResult)) {
-      return;
-    }
-
-    this.setData({
-      services: (result as CloudResult)?.data as Service[],
+      services,
     });
   },
 });
