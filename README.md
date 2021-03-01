@@ -104,6 +104,6 @@ module.exports = {
 ## 体验版
 <p align="center">
   <br>
-  <img src="qr.jpr"/>
+  <img src="qr.jpg"/>
   <br>
 </p>
