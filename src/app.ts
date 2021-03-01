@@ -11,7 +11,5 @@ App<IAppOption>({
         traceUser: true,
       });
     }
-
-    this.globalData = {};
   },
 });

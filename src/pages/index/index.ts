@@ -1,7 +1,7 @@
 // index.ts
 
 import { SERICE_STATUS, Service, SERVICE_STATUS_MAP } from '../type';
-import { ArrowColor } from '../constants';
+import { ArrowColor, isDirty, setDirty } from './constants';
 import { cloudRequest } from '../../utils/util';
 
 Page({
@@ -19,12 +19,17 @@ Page({
         status: option.status as SERICE_STATUS,
       });
     }
+    this.getServices();
   },
   onShow() {
-    this.getServices();
+    // isDirty代表需要重新获取数据
+    if (isDirty.value) {
+      this.getServices();
+    }
   },
   // 获取服务列表
   async getServices() {
+    setDirty(false);
     this.setData({
       loading: true,
     });
@@ -34,12 +39,10 @@ Page({
         status: this.data.status,
       },
     });
-
     // 有支付分的排在前面
     const services = (result?.data as Service[]).sort((a) =>
       a.payScore ? -1 : 1,
     );
-
     this.setData({
       loading: false,
       services,

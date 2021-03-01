@@ -13,7 +13,7 @@ import {
   stopButtons,
   deleteButtons,
 } from './constants';
-import { ArrowColor } from '../constants';
+import { ArrowColor, setDirty } from '../index/constants';
 
 Page({
   data: {
@@ -76,12 +76,12 @@ Page({
           value: SERICE_STATUS.已停用,
         },
       });
+      setDirty(true);
       // 刷新数据
       await this.getService();
       wx.hideToast();
     }
   },
-
   openStopConfirm() {
     this.setData({
       stopDialogShow: true,
@@ -105,12 +105,12 @@ Page({
           value: true,
         },
       });
+      setDirty(true);
       // 返回首页
       wx.hideToast();
       wx.reLaunch({ url: '/pages/index/index', fail: console.log });
     }
   },
-
   openDeleteConfirm() {
     this.setData({
       deleteDialogShow: true,
